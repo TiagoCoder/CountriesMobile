@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+              xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             x:Class="CountriesMobile.Prism.Views.CountryDetailPage"
+             Title ="{Binding Title}"
+             BackgroundColor="LightBlue">
+
+    <ScrollView>
+        <StackLayout Padding="5">
+            <ffSvg:SvgCachedImage Grid.Column="0" Aspect="Fill" Source="{Binding CountryResponse.Flag}" CacheDuration="50" Margin="5" RetryCount="3" RetryDelay="600" HeightRequest="250">
+            </ffSvg:SvgCachedImage>
+            <Grid Margin="10,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" FontAttributes="Bold" Text="Name" FontSize="Medium"></Label>
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding CountryResponse.Name}" FontSize="Medium"></Label>
+                <Label Grid.Row="1" Grid.Column="0" FontAttributes="Bold" Text="Alpha 2 Code" FontSize="Medium"></Label>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding CountryResponse.Alpha2Code}" FontSize="Medium"></Label>
+                <Label Grid.Row="2" Grid.Column="0" FontAttributes="Bold" Text="Alpha 3 Code" FontSize="Medium"></Label>
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding CountryResponse.Alpha3Code}" FontSize="Medium"></Label>
+                <Label Grid.Row="3" Grid.Column="0" FontAttributes="Bold" Text="Capital" FontSize="Medium"></Label>
+                <Label Grid.Row="3" Grid.Column="1" Text="{Binding CountryResponse.Capital}" FontSize="Medium"></Label>
+                <Label Grid.Row="4" Grid.Column="0" FontAttributes="Bold" Text="Region" FontSize="Medium"></Label>
+                <Label Grid.Row="4" Grid.Column="1" Text="{Binding CountryResponse.Region}" FontSize="Medium"></Label>
+                <Label Grid.Row="5" Grid.Column="0" FontAttributes="Bold" Text="Subregion" FontSize="Medium"></Label>
+                <Label Grid.Row="5" Grid.Column="1" Text="{Binding CountryResponse.Subregion}" FontSize="Medium"></Label>
+                <Label Grid.Row="6" Grid.Column="0" FontAttributes="Bold" Text="Population" FontSize="Medium"></Label>
+                <Label Grid.Row="6" Grid.Column="1" Text="{Binding CountryResponse.Population, StringFormat='{0:N0}'}" FontSize="Medium"></Label>
+                <Label Grid.Row="7" Grid.Column="0" FontAttributes="Bold" Text="Demonym" FontSize="Medium"></Label>
+                <Label Grid.Row="7" Grid.Column="1" Text="{Binding CountryResponse.Demonym}" FontSize="Medium"></Label>
+                <Label Grid.Row="8" Grid.Column="0" FontAttributes="Bold" Text="Area" FontSize="Medium"></Label>
+                <Label Grid.Row="8" Grid.Column="1" Text="{Binding CountryResponse.Area, StringFormat='{0:N0} km²'}" FontSize="Medium"></Label>
+                <Label Grid.Row="9" Grid.Column="0" FontAttributes="Bold" Text="Gini" FontSize="Medium"></Label>
+                <Label Grid.Row="9" Grid.Column="1" Text="{Binding CountryResponse.Gini, StringFormat='{N}'}" FontSize="Medium"></Label>
+                <Label Grid.Row="10" Grid.Column="0" FontAttributes="Bold" Text="Native Name" FontSize="Medium"></Label>
+                <Label Grid.Row="10" Grid.Column="1" Text="{Binding CountryResponse.NativeName}" HorizontalOptions="Start" FontSize="Medium"></Label>
+                <Label Grid.Row="11" Grid.Column="0" FontAttributes="Bold" Text="Numeric Code" FontSize="Medium"></Label>
+                <Label Grid.Row="11" Grid.Column="1" Text="{Binding CountryResponse.NumericCode}" FontSize="Medium"></Label>
+                <Label Grid.Row="12" Grid.Column="0" FontAttributes="Bold" Text="Cioc" FontSize="Medium"></Label>
+                <Label Grid.Row="12" Grid.Column="1" Text="{Binding CountryResponse.Cioc}" FontSize="Medium"></Label>
+                <Label Grid.Row="13" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" FontAttributes="Bold"  FontSize="Large" Text="Click here to see TravelAdvice!" BackgroundColor="Khaki">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelectTravelAdviceCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
